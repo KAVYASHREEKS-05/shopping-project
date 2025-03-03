@@ -1,0 +1,24 @@
+nav{
+    height:10vh;
+    background-color: black;
+}
+li{
+    list-style-type: none;
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+li a{
+    text-decoration: none;
+    color:white;
+    
+}
+li{
+    padding-top: 20px;
+}
+.logo{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+}
