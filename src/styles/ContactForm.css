@@ -1,0 +1,96 @@
+/* Contact Form Container */
+.contact-form-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-form-container:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Heading */
+  .contact-form-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* Section Title */
+  .contact-form-container h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  /* Form Input Fields */
+  .contact-form-container input, .contact-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-form-container input:focus, .contact-form-container textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Labels */
+  .contact-form-container label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Form Button */
+  .contact-form-container button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  .contact-form-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-form-container {
+      padding: 20px;
+    }
+  
+    .contact-form-container h1 {
+      font-size: 24px;
+    }
+  
+    .contact-form-container h3 {
+      font-size: 14px;
+    }
+  }
+  

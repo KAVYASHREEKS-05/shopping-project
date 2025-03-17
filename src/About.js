@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-
+import './styles/About.css'
 const About = () => {
   return (
     <Container>
@@ -23,8 +23,8 @@ const About = () => {
             src="https://img.freepik.com/premium-photo/inside-mall-inspiration-design-professional-advertising-photography-ai-generated_925376-3239.jpg"
             alt="Team"
             className="img-fluid rounded"
-            width={"400px"}
-            height={"400px"}
+            width="100%" /* Make the image fill the container */
+            height="auto" /* Keep the aspect ratio intact */
           />
         </Col>
       </Row>
@@ -50,7 +50,7 @@ const About = () => {
           <Card>
             <Card.Img
               variant="top"
-              src="https://randomuser.me/api/portraits/men/29.jpg"
+              src="https://avatar.iran.liara.run/public/4"
               alt="Team Member 1"
             />
             <Card.Body>
@@ -64,7 +64,7 @@ const About = () => {
           <Card>
             <Card.Img
               variant="top"
-             src="https://randomuser.me/api/portraits/men/10.jpg"
+             src="https://avatar.iran.liara.run/public/41"
               alt="Team Member 2"
             />
             <Card.Body>
@@ -78,7 +78,7 @@ const About = () => {
           <Card>
             <Card.Img
               variant="top"
-             src="https://randomuser.me/api/portraits/men/4.jpg"
+             src="https://avatar.iran.liara.run/public/60"
               alt="Team Member 3"
             />
             <Card.Body>

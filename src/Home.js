@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "./redux/productSlice";
+import { fetchProducts, addToCart } from "./redux/productSlice";
 import { Link } from "react-router-dom";
-import "./App.css";
-
+import "../src/styles/home.css";
+import Main from "./Main"
 const Home = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
@@ -12,25 +12,31 @@ const Home = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>Error: {error}</h2>;
+  if (loading) return <h2 className="loading-text">Loading...</h2>;
+  if (error) return <h2 className="error-text">Error: {error}</h2>;
 
   return (
-    <div className="row mt-4 m-4">
+    <div>
+   <Main></Main>
+    <div className="product-container">
       {products.map((product) => (
-        <div key={product.id} className="col-md-4 mb-4">
-          <div className="card" style={{ width: "18rem" }}>
-            <img src={product.image} className="card-img-top" style={{ height: "200px" }} alt={product.title} />
-            <div className="card-body">
-              <h5 className="card-title title-ellipsis">{product.title}</h5>
-              <p className="card-text">${product.price}</p>
-              <Link to={`/product/${product.id}`}>
-                <button className="btn btn-primary">View Details</button>
-              </Link>
-            </div>
+        <div key={product.id} className="product-card">
+          <div className="product-image-wrapper">
+            <img src={product.image} className="product-image" alt={product.title} />
+          </div>
+          <div className="product-details">
+            <h5 className="product-title">{product.title}</h5>
+            <p className="product-price">${product.price}</p>
+            <Link to={`/product/${product.id}`} className="details-link">
+              <button className="btn btn-primary">View Details</button>
+            </Link>
+            <button className="btn btn-success add-cart-btn" onClick={() => dispatch(addToCart(product))}>
+              Add to Cart 🛒
+            </button>
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };

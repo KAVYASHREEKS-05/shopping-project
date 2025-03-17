@@ -1,0 +1,118 @@
+
+/* Cart Container */
+.cart-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 12vh; 
+}
+
+/* Cart Title */
+.cart-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Cart Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table thead {
+    background: #28a745;
+    color: white;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Product Image */
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart-item-img:hover {
+    transform: scale(1.05);
+}
+
+/* Cart Item Details */
+.cart-item-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-item-price,
+.cart-item-quantity {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Remove Button */
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    background: #b22234;
+}
+
+/* Cart Summary */
+.cart-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-total-items,
+.cart-total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cart-table th, .cart-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .cart-item-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .remove-btn {
+        padding: 6px 10px;
+    }
+}

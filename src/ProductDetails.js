@@ -1,26 +1,46 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"; 
+import { addToCart } from "./redux/productSlice";
 import { useParams, useNavigate } from "react-router-dom";
-import "./App.css";
+import "./styles/ProductDetails.css";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { id } = useParams();
   const products = useSelector((state) => state.products.products);
   const product = products.find((item) => item.id === parseInt(id));
 
   if (!product) return <h2>Product Not Found</h2>;
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(product)); // Dispatch action to add product to cart
+  };
+
   return (
-    <div className="details">
-      <div className="m-4">
-        <h2>{product.title}</h2>
-        <img src={product.image} className="img-fluid" alt={product.title} style={{ maxWidth: "300px", height: "auto" }} />
-        <p className="mt-3">{product.description}</p>
-        <h4>Price: ${product.price}</h4>
-        <button className="btn btn-primary mt-3" onClick={() => navigate("/")}>
-          Go Back
-        </button>
+    <div className="product-details-page">
+      <div className="product-container">
+        <div className="product-image">
+          <img
+            src={product.image}
+            className="img-fluid"
+            alt={product.title}
+            style={{ maxWidth: "300px", height: "auto" }}
+          />
+        </div>
+        <div className="product-details">
+          <h2>{product.title}</h2>
+          <p>{product.description}</p>
+          <h4>Price: ${product.price}</h4>
+          <div className="buttons">
+            <button className="btn btn-success mt-3 me-3" onClick={handleAddToCart}>
+              Add to Cart 🛒
+            </button>
+            <button className="btn btn-primary mt-3" onClick={() => navigate("/")}>
+              Go Back
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

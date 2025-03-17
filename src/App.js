@@ -7,15 +7,20 @@ import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
 import ProductDetails from "./ProductDetails";
+import Cart from "./Cart";
+import './App.css'
 
 const App = () => {
   return (
     <>
      <Navbar />
+   
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+         
           <Route path="/product/:id" element={<ProductDetails />} />
         </Routes></>
        

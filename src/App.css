@@ -1,18 +1,16 @@
-*{
-  margin:0;
-  padding:0;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}
-body{
-  height:100vh;
-  
-}
-.title-ellipsis {
-  white-space: nowrap;          
-  overflow: hidden;          
-  text-overflow: ellipsis;      
+  font-family: 'Poppins', sans-serif;
 }
 
-.details img{
-  margin-left:10rem;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+ 
 }
