@@ -36,14 +36,16 @@ const productSlice = createSlice({
       localStorage.setItem("cart", JSON.stringify(state.cartItems)); // Persist to localStorage
     },
     removeFromCart: (state, action) => {
+      console.log(action.payload); // Log to check the id being passed
       const itemIndex = state.cartItems.findIndex(item => item.id === action.payload);
       if (itemIndex !== -1) {
         state.totalQuantity -= state.cartItems[itemIndex].quantity;
         state.totalPrice -= state.cartItems[itemIndex].price * state.cartItems[itemIndex].quantity;
         state.cartItems.splice(itemIndex, 1);
       }
-      localStorage.setItem("cart", JSON.stringify(state.cartItems)); // Persist to localStorage
+      localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
+       
   },
   extraReducers: (builder) => {
     builder

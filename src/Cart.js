@@ -41,7 +41,7 @@ const Cart = () => {
                                         <td className="cart-item-price">₹{priceInINR.toFixed(2)}</td> {/* Display price in INR */}
                                         <td className="cart-item-quantity">{item.quantity}</td>
                                         <td>
-                                            <button className="remove-btn" onClick={() => dispatch(removeFromCart(item))}>
+                                            <button className="remove-btn" onClick={() => dispatch(removeFromCart(item.id))}>
                                                 Remove
                                             </button>
                                         </td>
