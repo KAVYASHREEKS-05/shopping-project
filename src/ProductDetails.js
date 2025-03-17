@@ -10,7 +10,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const products = useSelector((state) => state.products.products);
   const product = products.find((item) => item.id === parseInt(id));
-
+  const conversionRate = 83;
+  const productPriceInINR = product.price * conversionRate; // Calculate price for each product
   if (!product) return <h2>Product Not Found</h2>;
 
   const handleAddToCart = () => {
@@ -31,7 +32,7 @@ const ProductDetails = () => {
         <div className="product-details">
           <h2>{product.title}</h2>
           <p>{product.description}</p>
-          <h4>Price: ${product.price}</h4>
+          <h4>Price:₹{productPriceInINR.toFixed(2)}</h4>
           <div className="buttons">
             <button className="btn btn-success mt-3 me-3" onClick={handleAddToCart}>
               Add to Cart 🛒

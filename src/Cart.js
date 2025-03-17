@@ -6,6 +6,7 @@ import "../src/styles/cart.css"; // Import CSS
 const Cart = () => {
     const { cartItems, totalPrice, totalQuantity } = useSelector((state) => state.products);
     const dispatch = useDispatch();
+    const conversionRate = 83; // Conversion rate from USD to INR
 
     return (
         <div className="cart-container">
@@ -20,35 +21,41 @@ const Cart = () => {
                             <tr>
                                 <th>Image</th>
                                 <th>Title</th>
-                                <th>Price</th>
+                                <th>Price (INR)</th>
                                 <th>Quantity</th>
                                 <th>Remove</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {cartItems.map((item) => (
-                                <tr key={item.id} className="cart-item">
-                                    <td>
-                                        <img src={item.image} alt={item.title} className="cart-item-img" />
-                                    </td>
-                                    <td className="cart-item-title">
-                                        {item.title.split(" ").slice(0, 4).join(" ") + (item.title.split(" ").length > 4 ? " ..." : "")}
-                                    </td>
-                                    <td className="cart-item-price">${item.price}</td>
-                                    <td className="cart-item-quantity">{item.quantity}</td>
-                                    <td>
-                                        <button className="remove-btn" onClick={() => dispatch(removeFromCart(item))}>
-                                            Remove
-                                        </button>
-                                    </td>
-                                </tr>
-                            ))}
+                            {cartItems.map((item) => {
+                                const priceInINR = item.price * conversionRate; // Convert price to INR
+
+                                return (
+                                    <tr key={item.id} className="cart-item">
+                                        <td>
+                                            <img src={item.image} alt={item.title} className="cart-item-img" />
+                                        </td>
+                                        <td className="cart-item-title">
+                                            {item.title.split(" ").slice(0, 4).join(" ") + (item.title.split(" ").length > 4 ? " ..." : "")}
+                                        </td>
+                                        <td className="cart-item-price">₹{priceInINR.toFixed(2)}</td> {/* Display price in INR */}
+                                        <td className="cart-item-quantity">{item.quantity}</td>
+                                        <td>
+                                            <button className="remove-btn" onClick={() => dispatch(removeFromCart(item))}>
+                                                Remove
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
 
                     <div className="cart-summary">
                         <h3 className="cart-total-items">Total Items: {totalQuantity}</h3>
-                        <h3 className="cart-total-price">Total Price: ${totalPrice.toFixed(2)}</h3>
+                        <h3 className="cart-total-price">
+                            Total Price: ₹{(totalPrice * conversionRate).toFixed(2)} {/* Display total price in INR */}
+                        </h3>
                     </div>
                 </>
             )}
